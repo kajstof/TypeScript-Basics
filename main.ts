@@ -1,3 +1,5 @@
+import { LikeButton } from './facebooklike';
+import { LikeComponent } from './like.component';
 // TypeScript == JavaScript
 function log1(message) {
     console.log(message);
@@ -10,7 +12,7 @@ function doSomething() {
     for (let i = 0; i < 5; i++) {
         console.log(i);
     }
-    console.log('Finally: ' + i);
+    // console.log('Finally: ' + i);
 }
 doSomething();
 
@@ -40,11 +42,11 @@ let backgroundColor = Color.Blue;
 
 // Type assertion
 let msg1 = 'abc';
-let endsWithC = msg1.endsWith('c');
+// let endsWithC = msg1.endsWith('c');
 let msg2;
 msg2 = 'abc';
-let endsWithC21 = (<string>msg2).endsWith('c');
-let endsWithC22 = (msg2 as string).endsWith('c');
+// let endsWithC21 = (<string>msg2).endsWith('c');
+// let endsWithC22 = (msg2 as string).endsWith('c');
 
 // Arrow functions
 let log2 = function (message) {
@@ -65,39 +67,8 @@ let drawPoint2 = (point: IPoint) => { /* ... */ }
 let getDistance = (pointA: IPoint, pointB: IPoint) => { /* ... */ }
 
 // Claseses
-class Point {
-    // private x: number;
-    // private y: number;
-    constructor(private x?: number, private y?: number) {
-        // this.x = x;
-        // this.y = y;
-    }
-    draw() {
-        console.log('X: ' + this.x + ', Y: ' + this.y);
-    }
-    // getX() { return this.x; }
-    // setX(value) {
-    //     if (value < 0) {
-    //         throw new Error('value cannot be less than 0.')
-    //     }
-    //     this.x = value;
-    // }
-    get X() { return this.x; }
-    set X(value) {
-        if (value < 0) {
-            throw new Error('value cannot be less than 0.')
-        }
-        this.x = value;
-    }
-    get Y() { return this.y; }
-    set Y(value) {
-        if (value < 0) {
-            throw new Error('value cannot be less than 0.')
-        }
-        this.x = value;
-    }
-    getDistance(another: Point) { /* ... */ }
-}
+import { Point } from './point';
+// import { Point } from '@angular/core';
 let point1 = new Point();
 let point2 = new Point(1, 2);
 // point2.getX();
@@ -107,3 +78,14 @@ point2.Y = 10;
 let yy = point2.Y;
 point2.Y = 10;
 point2.draw();
+
+let lb = new LikeButton();
+console.info(lb.Count);
+lb.clickButton();
+console.info(lb.Count);
+lb.clickButton();
+console.info(lb.Count);
+
+let component = new LikeComponent(10, true);
+component.onClick();
+console.log(`LikesCount: ${component.LikesCount} | IsSelected: ${component.IsSelected}`);

@@ -1,3 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var facebooklike_1 = require("./facebooklike");
+var like_component_1 = require("./like.component");
 // TypeScript == JavaScript
 function log1(message) {
     console.log(message);
@@ -9,7 +13,7 @@ function doSomething() {
     for (var i = 0; i < 5; i++) {
         console.log(i);
     }
-    console.log('Finally: ' + i);
+    // console.log('Finally: ' + i);
 }
 doSomething();
 // 'let' is statically types
@@ -41,11 +45,11 @@ var Color;
 var backgroundColor = Color.Blue;
 // Type assertion
 var msg1 = 'abc';
-var endsWithC = msg1.endsWith('c');
+// let endsWithC = msg1.endsWith('c');
 var msg2;
 msg2 = 'abc';
-var endsWithC21 = msg2.endsWith('c');
-var endsWithC22 = msg2.endsWith('c');
+// let endsWithC21 = (<string>msg2).endsWith('c');
+// let endsWithC22 = (msg2 as string).endsWith('c');
 // Arrow functions
 var log2 = function (message) {
     console.log(message);
@@ -58,52 +62,10 @@ drawPoint1({ x: 1, y: 2 });
 var drawPoint2 = function (point) { };
 var getDistance = function (pointA, pointB) { };
 // Claseses
-var Point = /** @class */ (function () {
-    // private x: number;
-    // private y: number;
-    function Point(x, y) {
-        this.x = x;
-        this.y = y;
-        // this.x = x;
-        // this.y = y;
-    }
-    Point.prototype.draw = function () {
-        console.log('X: ' + this.x + ', Y: ' + this.y);
-    };
-    Object.defineProperty(Point.prototype, "X", {
-        // getX() { return this.x; }
-        // setX(value) {
-        //     if (value < 0) {
-        //         throw new Error('value cannot be less than 0.')
-        //     }
-        //     this.x = value;
-        // }
-        get: function () { return this.x; },
-        set: function (value) {
-            if (value < 0) {
-                throw new Error('value cannot be less than 0.');
-            }
-            this.x = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Point.prototype, "Y", {
-        get: function () { return this.y; },
-        set: function (value) {
-            if (value < 0) {
-                throw new Error('value cannot be less than 0.');
-            }
-            this.x = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Point.prototype.getDistance = function (another) { };
-    return Point;
-}());
-var point1 = new Point();
-var point2 = new Point(1, 2);
+var point_1 = require("./point");
+// import { Point } from '@angular/core';
+var point1 = new point_1.Point();
+var point2 = new point_1.Point(1, 2);
 // point2.getX();
 // point2.setX(10);
 var xx = point2.X;
@@ -111,3 +73,12 @@ point2.Y = 10;
 var yy = point2.Y;
 point2.Y = 10;
 point2.draw();
+var lb = new facebooklike_1.LikeButton();
+console.info(lb.Count);
+lb.clickButton();
+console.info(lb.Count);
+lb.clickButton();
+console.info(lb.Count);
+var component = new like_component_1.LikeComponent(10, true);
+component.onClick();
+console.log("LikesCount: " + component.LikesCount + " | IsSelected: " + component.IsSelected);
