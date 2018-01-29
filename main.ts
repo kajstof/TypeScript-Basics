@@ -69,6 +69,7 @@ let getDistance = (pointA: IPoint, pointB: IPoint) => { /* ... */ }
 // Claseses
 import { Point } from './point';
 // import { Point } from '@angular/core';
+// let point1 : Point = new Point();
 let point1 = new Point();
 let point2 = new Point(1, 2);
 // point2.getX();

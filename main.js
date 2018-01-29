@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var facebooklike_1 = require("./facebooklike");
 var like_component_1 = require("./like.component");
 // TypeScript == JavaScript

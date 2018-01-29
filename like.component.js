@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var LikeComponent = /** @class */ (function () {
     function LikeComponent(likesCount, isSelected) {
         this.likesCount = likesCount;
