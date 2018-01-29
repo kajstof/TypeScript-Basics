@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var facebooklike_1 = require("./facebooklike");
 var like_component_1 = require("./like.component");
 // TypeScript == JavaScript
@@ -64,6 +64,7 @@ var getDistance = function (pointA, pointB) { };
 // Claseses
 var point_1 = require("./point");
 // import { Point } from '@angular/core';
+// let point1 : Point = new Point();
 var point1 = new point_1.Point();
 var point2 = new point_1.Point(1, 2);
 // point2.getX();
